@@ -1,0 +1,7 @@
+{
+  "name": "DUET",
+  "description": "An advanced digital twin framework featuring adaptive neural mirroring and parallel consciousness streams.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
