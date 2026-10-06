@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Onboarding } from './components/Onboarding';
 import { Simulation } from './components/Simulation';
 import { KeySelection } from './components/KeySelection';
+import { AuthGate } from './components/AuthGate';
 import { UserProfile, ThemeSettings } from './types';
 
 const DEFAULT_THEME: ThemeSettings = {
@@ -39,7 +40,8 @@ function App() {
   const updateTheme = (t: Partial<ThemeSettings>) => setTheme(prev => ({ ...prev, ...t }));
 
   return (
-    <div className="fixed inset-0 bg-[#000000] text-white overflow-hidden flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+    <AuthGate appName="DUET">
+      <div className="fixed inset-0 bg-[#000000] text-white overflow-hidden flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
       
       {/* Full-screen UI Container */}
       <div className="relative z-10 w-full h-full flex flex-col bg-[#050505] shadow-[0_0_100px_rgba(0,0,0,1)] overflow-hidden">
@@ -97,7 +99,8 @@ function App() {
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         * { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
-    </div>
+      </div>
+    </AuthGate>
   );
 }
 
